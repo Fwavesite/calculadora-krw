@@ -37,4 +37,49 @@
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            borde
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #resultado {
+            font-size: 1.5em;
+            color: #007BFF;
+            margin-top: 10px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            background: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>- MONTO EN KRW:</h3>
+        <input type="number" id="krw" placeholder="Ingrese el Monto en KRW" oninput="convertirKRW()">
+        
+        <h3>*Monto en USD*:</h3>
+        <p id="resultado">0.00 USD</p>
+
+        <button class="btn-submit" onclick="convertirKRW()">Convertir</button>
+    </div>
+
+    <script>
+        function convertirKRW() {
+            const tasaConversion = 0.96 / 1000; // 1000 KRW = 0.96 USD, entonces 1 KRW = 0.00096 USD
+            const krw = document.getElementById('krw').value;
+            const usd = (krw * tasaConversion).toFixed(2);
+            document.getElementById('resultado').innerText = usd + ' USD';
+        }
+    </script>
+</body>
+</html>
