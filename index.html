@@ -5,39 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora KRW a USD</title>
     <style>
-        body {
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
         }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
         .container {
-            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h3 {
             text-align: left;
-            max-width: 300px;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 16px;
         }
         input {
-            padding: 8px;
-            width: 80%;
-        }
-        #resultado {
-            font-size: 1.5em;
-            color: #007BFF;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <p><strong>- MONTO EN KRW :</strong></p>
-        <input type="number" id="krw" placeholder="1000" oninput="convertirKRW()">
-        <p>*Monto en USD*:</p>
-        <p id="resultado">0.00 USD</p>
-    </div>
-
-    <script>
-        function convertirKRW() {
-            const tasaConversion = 1000 / 0.96; // 1000 KRW = 0.96 USD
-            const krw = document.getElementById('krw').value;
-            const usd = (krw / tasaConversion).toFixed(2);
-            document.getElementById('resultado').innerText = usd + ' USD';
-        }
-    </script>
-</body>
-</html>
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            borde
