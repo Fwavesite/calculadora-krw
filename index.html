@@ -76,7 +76,7 @@
 
     <script>
         function convertirKRW() {
-            const tasaConversion = 0.96 / 1000; // 1000 KRW = 0.96 USD, entonces 1 KRW = 0.00096 USD
+            const tasaConversion = 0.96 / 1000; // 1000 KRW = 0.92 USD, entonces 1 KRW = 0.00096 USD
             const krw = document.getElementById('krw').value;
             const usd = (krw * tasaConversion).toFixed(2);
             document.getElementById('resultado').innerText = usd + ' USD';
