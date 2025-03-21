@@ -26,7 +26,7 @@
             max-width: 400px;
             width: 100%;
             text-align: center;
-            margin-bottom: 50px; /* Espacio después del contenedor */
+            position: relative;
         }
         h3 {
             text-align: left;
@@ -42,43 +42,42 @@
             border-radius: 5px;
             font-size: 16px;
         }
-        #resultado {
+        #resultado, #resultadoFee {
             font-size: 1.5em;
             color: #007BFF;
             margin-top: 10px;
             text-align: center;
         }
-        .btn-submit {
-            width: 100%;
-            padding: 12px;
-            background: #222;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
-        .btn-submit:hover {
-            background: #000;
+        .fee-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ffcc00;
+            color: #222;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="fee-info">+5% Fee</div>
         <h3>Monto en KRW:</h3>
         <input type="number" id="krw" placeholder="Ingrese el Monto en KRW" oninput="convertirKRW()">
         
-        <h3>Monto en USD:</h3>
+        <h3>Monto en USD (incl. Fee):</h3>
         <p id="resultado">0.00 USD</p>
     </div>
 
     <script>
         function convertirKRW() {
             const tasaConversion = 0.90 / 1000; // 1000 KRW = 0.90 USD, entonces 1 KRW = 0.00090 USD
+            const fee = 1.05; // 5% extra
             const krw = document.getElementById('krw').value;
-            const usd = (krw * tasaConversion).toFixed(2);
+            let usd = (krw * tasaConversion).toFixed(2);
+            usd = (usd * fee).toFixed(2); // Aplicar el 5% extra
             document.getElementById('resultado').innerText = usd + ' USD';
         }
     </script>
