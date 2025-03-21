@@ -82,10 +82,10 @@
     function convertirKRW() {
         const tasaConversion = 0.00090; // 1 KRW = 0.00090 USD
         const feePorcentaje = 1.020; // 2% extra
-        const feeFijo = 0.25; // $0.25 fijo
+        const feeFijo = 0.18; // $0.18 fijo
         const krw = document.getElementById('krw').value;
         let usd = (krw * tasaConversion).toFixed(2);
-        usd = (usd * feePorcentaje + feeFijo).toFixed(2); // Aplicar el 2% extra + $0.25 fijo
+        usd = (usd * feePorcentaje + feeFijo).toFixed(2); // Aplicar el 2% extra + $0.18 fijo
         document.getElementById('resultado').innerText = usd + ' USD';
     }
 </script>
