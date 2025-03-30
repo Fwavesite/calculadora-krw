@@ -80,11 +80,21 @@
 
     <script>
     function convertirKRW() {
-        const tasaConversion = 0.00090; // 1 KRW = 0.00090 USD
-        const feePorcentaje = 1.015; // 1.5% extra
+        const tasaConversion = 0.00086; // 1 KRW = 0.00086 USD
         const krw = document.getElementById('krw').value;
         let usd = (krw * tasaConversion).toFixed(2);
-        usd = (usd * feePorcentaje).toFixed(2); // Aplicar solo el 1.5% extra
+        
+        let feePorcentaje = 1; // Sin fee por defecto
+        
+        if (usd < 15) {
+            feePorcentaje = 1.10; // 10% extra
+        } else if (usd >= 30 && usd <= 60) {
+            feePorcentaje = 1.08; // 8% extra
+        } else if (usd > 80) {
+            feePorcentaje = 1.05; // 5% extra
+        }
+        
+        usd = (usd * feePorcentaje).toFixed(2);
         document.getElementById('resultado').innerText = usd + ' USD';
     }
     </script>
