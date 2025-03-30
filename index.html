@@ -80,7 +80,7 @@
 
     <script>
     function convertirKRW() {
-        const tasaConversion = 0.00086; // 1 KRW = 0.00086 USD
+        const tasaConversion = 0.00080; // 1 KRW = 0.00080 USD
         const krw = document.getElementById('krw').value;
         let usd = (krw * tasaConversion).toFixed(2);
         
@@ -89,9 +89,9 @@
         if (usd < 15) {
             feePorcentaje = 1.10; // 8% extra
         } else if (usd >= 15 && usd <= 30) {
-            feePorcentaje = 1.08; // 5% extra
+            feePorcentaje = 1.08; // 8% extra
         } else if (usd > 65) {
-            feePorcentaje = 1.05; // 5% extra
+            feePorcentaje = 1.05; // 8% extra
         }
         
         usd = (usd * feePorcentaje).toFixed(2);
