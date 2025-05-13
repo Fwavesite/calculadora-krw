@@ -88,9 +88,11 @@
       if (!isNaN(krw)) {
         usd = krw * tasaConversion;
 
-        // Aplicar descuentos según el monto
-        if (krw >= 19000) {
-          descuento = 0.06;
+        // Aplicar descuentos según el monto actualizado
+        if (krw >= 29000) {
+          descuento = 0.065;
+        } else if (krw >= 19000) {
+          descuento = 0.055;
         } else if (krw >= 17000) {
           descuento = 0.05;
         } else if (krw >= 15000) {
