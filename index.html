@@ -64,12 +64,6 @@
       font-size: 14px;
       font-weight: bold;
     }
-    .descuento {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #28a745;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
@@ -82,7 +76,6 @@
       <h4>Monto en USD (incl. fee de cambios):</h4>
       <p id="resultado">0.00 USD</p>
     </div>
-    <div class="descuento" id="descuentoInfo"></div>
   </div>
 
   <script>
@@ -91,7 +84,6 @@
       const krw = parseFloat(document.getElementById('krw').value);
       let usd = 0;
       let descuento = 0;
-      let mensaje = '';
 
       if (!isNaN(krw)) {
         usd = krw * tasaConversion;
@@ -99,27 +91,21 @@
         // Aplicar descuentos según el monto
         if (krw >= 19000) {
           descuento = 0.06;
-          mensaje = 'Descuento aplicado: 6%';
         } else if (krw >= 17000) {
           descuento = 0.05;
-          mensaje = 'Descuento aplicado: 5%';
         } else if (krw >= 15000) {
           descuento = 0.04;
-          mensaje = 'Descuento aplicado: 4%';
         } else if (krw >= 12000) {
           descuento = 0.03;
-          mensaje = 'Descuento aplicado: 3%';
         }
 
         if (descuento > 0) {
-          usd = usd * (1 - descuento);
+          usd *= (1 - descuento);
         }
 
         document.getElementById('resultado').innerText = usd.toFixed(2) + ' USD';
-        document.getElementById('descuentoInfo').innerText = mensaje;
       } else {
         document.getElementById('resultado').innerText = '0.00 USD';
-        document.getElementById('descuentoInfo').innerText = '';
       }
     }
   </script>
