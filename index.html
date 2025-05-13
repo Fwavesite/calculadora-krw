@@ -80,7 +80,7 @@
 
   <script>
     function convertirKRW() {
-      const tasaConversion = 0.00095; // 1000 KRW = 0.95 USD
+      const tasaConversion = 0.00096; // 1000 KRW = 0.96 USD
       const krw = parseFloat(document.getElementById('krw').value);
       let usd = 0;
       let descuento = 0;
@@ -90,11 +90,11 @@
 
         // Aplicar descuentos en orden descendente de prioridad
         if (krw >= 150000) {
-          descuento = 0.10;
+          descuento = 0.11;
         } else if (krw >= 100000) {
-          descuento = 0.10;
+          descuento = 0.11;
         } else if (krw >= 30000) {
-          descuento = 0.10;
+          descuento = 0.11;
         } else if (krw >= 29000) {
           descuento = 0.10;
         } else if (krw >= 20000) {
