@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Calculadora KRW a USD</title>
   <style>
     * {
@@ -70,8 +70,8 @@
   <div class="container">
     <div class="fee-info">Calculadora</div>
     <h3>Monto en KRW:</h3>
-    <input type="number" id="krw" placeholder="Ingrese el Monto en KRW" oninput="convertirKRW()">
-    
+    <input type="number" id="krw" placeholder="Ingrese el Monto en KRW" oninput="convertirKRW()"/>
+
     <div class="resultado-container">
       <h4>Monto en USD (incl. fee de cambios):</h4>
       <p id="resultado">0.00 USD</p>
@@ -88,11 +88,13 @@
       if (!isNaN(krw)) {
         usd = krw * tasaConversion;
 
-        // Aplicar descuentos según el monto actualizado
+        // Aplicar descuentos actualizados
         if (krw >= 29000) {
+          descuento = 0.11;
+        } else if (krw >= 20000) {
           descuento = 0.065;
         } else if (krw >= 19000) {
-          descuento = 0.055;
+          descuento = 0.06;
         } else if (krw >= 17000) {
           descuento = 0.05;
         } else if (krw >= 15000) {
@@ -101,9 +103,7 @@
           descuento = 0.03;
         }
 
-        if (descuento > 0) {
-          usd *= (1 - descuento);
-        }
+        usd *= (1 - descuento);
 
         document.getElementById('resultado').innerText = usd.toFixed(2) + ' USD';
       } else {
